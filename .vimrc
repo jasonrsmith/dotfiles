@@ -267,7 +267,6 @@ au! BufWritePost .vimrc so %
 
 " terminal
 tnoremap <F12> <C-\><C-n> 
-autocmd WinEnter term://* startinsert
 set switchbuf+=useopen
 function! TermEnter()
   let bufcount = bufnr("$")
@@ -294,3 +293,8 @@ function! TermEnter()
   endif
 endfunction
 map <F12> :call TermEnter()<CR>
+function! PhpUnit()
+  call TermEnter()
+  normal i phpunit
+endfunction
+map <F11> :call PhpUnit()<CR>
