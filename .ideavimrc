@@ -1,0 +1,7 @@
+"source ~/.vimrc
+
+set incsearch
+set ignorecase
+set smartcase
+set hlsearch
+noremap <tab> <c-w><c-w>
