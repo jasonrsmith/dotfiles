@@ -98,6 +98,7 @@ Plug 'lvht/phpcd.vim'
 Plug 'ryanoasis/vim-devicons'
 " my custom php stuff
 Plug 'jasonrsmith/vim-phpthings'
+Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 
 " go
 Plug 'fatih/vim-go'
@@ -106,7 +107,7 @@ Plug 'fatih/vim-go'
 Plug 'AndrewRadev/splitjoin.vim'
 
 " asynch lint engine
-" Plug 'w0rp/ale'
+Plug 'w0rp/ale'
 
 " automated bullet lists
 Plug 'dkarter/bullets.vim'
@@ -213,10 +214,6 @@ set guicursor=
 " colorscheme molokai
 
 set t_Co=256
-" Light color scheme
-let g:seoul256_background = 234
-colo seoul256
-
 " This is only necessary if you use "set termguicolors".
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -225,7 +222,6 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set background=dark
 set t_Co=256
 set termguicolors
-
 colorscheme monokai_semipro
 
 let mapleader = ","
@@ -236,8 +232,6 @@ nnoremap <F2> :call MyNerdTreeToggle()<CR>
 set pastetoggle=<f5>
 map <F6> :b#<CR>
 nmap <F8> :TagbarToggle<CR>
-" phpunit
-autocmd FileType php nmap <F9> :Test<CR>
 
 " Tab between buffers
 function! SkipJumpWindows()
@@ -419,23 +413,12 @@ endif
 " ale
 let g:ale_set_loclist = 1
 let g:ale_set_quickfix = 0
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
-let g:ale_sign_error = '😡'
-let g:ale_sign_warning = ''
+"highlight clear ALEErrorSign
+"highlight clear ALEWarningSign
+"let g:ale_sign_error = 'x'
+"let g:ale_sign_warning = ''
 "let g:airline#extensions#ale#enabled = 1
 "let g:go_auto_type_info = 1
-
-" ale php
-if filereadable(".project/MessDetector/ruleset.xml")
-  let g:ale_php_phpcs_standard = ".project/CodeSniffer/ruleset.xml"
-  " let g:phpqa_messdetector_ruleset = ".project/MessDetector/ruleset.xml"
-  " let g:phpqa_codesniffer_args = "-s --standard=.project/CodeSniffer/ruleset.xml"
-else
-  let g:ale_php_phpcs_standard = "$HOME/.codesniffer/ruleset.xml"
-  " let g:phpqa_messdetector_ruleset = "$HOME/.messdetector/ruleset.xml"
-  " let g:phpqa_codesniffer_autorun = 0
-endif
 
 " color column
 " set colorcolumn=81
