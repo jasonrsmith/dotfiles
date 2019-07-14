@@ -131,6 +131,7 @@ Plug 'mhinz/vim-startify'
 " ,ww - todo list/wiki
 " ,w,w - diary
 Plug 'vimwiki/vimwiki'
+Plug 'vim-voom/VOoM'
 
 Plug 'hashivim/vim-terraform'
 
@@ -748,28 +749,5 @@ set statusline+=\ %{StatusLineFiletype()}\ %{StatusLinePercent()}\ %l:%v
 set statusline+=\ %*
 set statusline+=%{PasteForStatusline()}       " paste flag
 
-" modelines are vulnerable
-" https://github.com/numirias/security/blob/master/doc/2019-06-04_ace-vim-neovim.md
-set nomodeline
-
-" gdscript
-augroup gdscript3
-  autocmd BufNewFile,BufRead *.gd setlocal noexpandtab tabstop=4 shiftwidth=4
-
-  let g:tagbar_type_gdscript3 = {
-        \'ctagstype' :'gdscript',
-        \'kinds':[
-        \'c:constants',
-        \'e:exports',
-        \'o:onready',
-        \'p:preloads',
-        \'s:signals',
-        \'f:functions',
-        \]
-        \}
-augroup END
-
-set list
-"set listchars=tab:
-set listchars=tab:»\ ,trail:·,eol:¬,nbsp:_
-
+" ,d print current date
+nnoremap <leader>d :put =strftime('[%Y-%m-%d]')<cr>

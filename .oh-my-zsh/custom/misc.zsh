@@ -29,5 +29,3 @@ zz() {
 }
 alias j=z
 alias jj=zz
-
-source $HOME/.oh-my-zsh/custom/z.sh
